@@ -20,6 +20,8 @@ export default createGlobalStyle`
         --grey-light: hsl(197, 10%, 85%);
         --grey-dark: hsl(197, 10%, 25%);
         --grey-darkest: hsl(197, 10%, 10%);
+
+        --grey-lightest-opa: hsla(197, 10%, 96%, 0.5);
     }
 
     *,
@@ -39,10 +41,23 @@ export default createGlobalStyle`
     body {
         line-height: 1.5;
         font-size: 1.25rem;
+        font-family: 'Montserrat', sans-serif;
         background: url(${backgroundImg});
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+    }
+
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.6rem;
+        margin: 1rem;
+        padding-top: 1rem;
+        color: var(--grey-dark);
+    }
+
+    p {
+        margin: 0 1rem;
     }
 
     img {
