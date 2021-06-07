@@ -40,7 +40,7 @@ export default createGlobalStyle`
 
     body {
         line-height: 1.5;
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         font-family: 'Montserrat', sans-serif;
         background: url(${backgroundImg});
         background-repeat: no-repeat;
@@ -48,9 +48,13 @@ export default createGlobalStyle`
         background-size: cover;
     }
 
+    body * {
+        font-family: 'Montserrat', sans-serif;
+    }
+
     h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.6rem;
+        font-family: 'Uncial Antiqua', serif;
+        font-size: 1.4rem;
         margin: 1rem;
         padding-top: 1rem;
         color: var(--grey-dark);

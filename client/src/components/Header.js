@@ -8,4 +8,5 @@ export default function Header() {
 const Image = styled.img`
   margin: 1rem auto;
   height: 1.6rem;
+  filter: drop-shadow(0 0 0.2rem black);
 `;

@@ -2,19 +2,20 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 import ireland from '../images/ireland.svg';
+import ireland_col from '../images/ireland_col.svg';
 import cliffs from '../images/cliff.svg';
 import shamrock from '../images/clover.svg';
 
 export default function NavFooter() {
   return (
     <NavWrapper>
-      <NavLink exact to='/'>
+      <NavLink exact to='/' activeClassName='selected'>
         <img src={ireland} alt='Home' />
       </NavLink>
-      <NavLink to='/sights'>
+      <NavLink to='/sights' activeClassName='selected'>
         <img src={cliffs} alt='Sights' />
       </NavLink>
-      <NavLink to='/favorites'>
+      <NavLink to='/favorites' activeClassName='selected'>
         <img src={shamrock} alt='Favorites' />
       </NavLink>
     </NavWrapper>
@@ -35,5 +36,9 @@ const NavWrapper = styled.footer`
 
   img {
     height: 3rem;
+  }
+
+  .selected {
+    filter: drop-shadow(0 0 0.2rem var(--primary-darkest));
   }
 `;
