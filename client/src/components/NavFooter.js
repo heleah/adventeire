@@ -6,9 +6,9 @@ import ireland from '../images/ireland.svg';
 import cliffs from '../images/cliff.svg';
 import shamrock from '../images/clover.svg';
 
-export default function NavFooter() {
+export default function NavFooter({ isStatic }) {
   return (
-    <NavWrapper>
+    <NavWrapper isStatic={isStatic}>
       <NavLink exact to='/' activeClassName='selected'>
         <img src={ireland} alt='Home' />
       </NavLink>
