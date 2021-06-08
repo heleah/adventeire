@@ -21,10 +21,12 @@ export default function Home() {
             <img src={cliffsWhite} alt='Sights Icon' />
           </Button>
         </LinkStyled>
-        <Button>
-          Filter
-          <img src={filterWhite} alt='Filter Icon' />
-        </Button>
+        <LinkStyled to='/filter'>
+          <Button>
+            Filter
+            <img src={filterWhite} alt='Filter Icon' />
+          </Button>
+        </LinkStyled>
       </ButtonWrapper>
       <ShamrockImg src={shamrock} alt='Shamrock' />
     </>

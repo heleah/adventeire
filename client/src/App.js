@@ -7,6 +7,7 @@ import NavFooter from './components/NavFooter';
 import Home from './pages/Home';
 import Sights from './pages/Sights';
 import Favorites from './pages/Favorites';
+import Filter from './components/Filter';
 
 function App() {
   /*   useEffect(() => {
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path='/favorites'>
             <Favorites />
+          </Route>
+          <Route path='/filter'>
+            <Filter />
           </Route>
         </Switch>
       </MainContainer>
