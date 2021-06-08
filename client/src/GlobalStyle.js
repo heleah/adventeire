@@ -3,25 +3,25 @@ import backgroundImg from './images/mainbg.jpg';
 
 export default createGlobalStyle`
     :root {
-        --primary: hsl(79, 96%, 40%);
-        --primary-lightest: hsl(79,96%,94%);
-        --primary-light: hsl(79,96%,70%);
-        --primary-dark: hsl(79,96%,25%);
-        --primary-darkest: hsl(79,96%,15%);
+        --primary: hsl(132, 58%, 53%);
+        --primary-lightest: hsl(132,58%,94%);
+        --primary-light: hsl(132,58%,75%);
+        --primary-dark: hsl(132,96%,25%);
+        --primary-darkest: hsl(132,96%,10%);
 
-        --secondary: hsl(259,96%,40%);
-        --secondary-lightest: hsl(259,96%,94%);
-        --secondary-light: hsl(259,96%,70%);
-        --secondary-dark: hsl(259,96%,25%);
-        --secondary-darkest: hsl(259,96%,15%);
+        --secondary: hsl(27, 87%, 46%);
+        --secondary-lightest: hsl(27,87%,94%);
+        --secondary-light: hsl(27,87%,70%);
+        --secondary-dark: hsl(27,96%,30%);
+        --secondary-darkest: hsl(27,96%,10%);
 
-        --grey: hsl(197, 10%, 40%);
-        --grey-lightest: hsl(197, 10%, 96%);
-        --grey-light: hsl(197, 10%, 85%);
-        --grey-dark: hsl(197, 10%, 25%);
-        --grey-darkest: hsl(197, 10%, 10%);
+        --grey: hsl(132, 10%, 40%);
+        --grey-lightest: hsl(132, 10%, 96%);
+        --grey-light: hsl(132, 10%, 85%);
+        --grey-dark: hsl(132, 10%, 25%);
+        --grey-darkest: hsl(132, 10%, 10%);
 
-        --grey-lightest-opa: hsla(197, 10%, 96%, 0.5);
+        --grey-lightest-opa: hsla(132, 10%, 96%, 0.5);
     }
 
     *,

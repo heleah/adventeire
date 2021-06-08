@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 import ireland from '../images/ireland.svg';
-import ireland_col from '../images/ireland_col.svg';
+//import ireland_col from '../images/ireland_col.svg';
 import cliffs from '../images/cliff.svg';
 import shamrock from '../images/clover.svg';
 
@@ -23,12 +23,12 @@ export default function NavFooter() {
 }
 
 const NavWrapper = styled.footer`
-  width: 94vw;
+  width: ${(props) => (props.isStatic ? 'auto' : '94vw')};
   background-color: var(--grey-lightest-opa);
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  margin-left: calc((-94vw / 2));
+  position: ${(props) => (props.isStatic ? 'static' : 'fixed')};
+  bottom: ${(props) => (props.isStatic ? 'auto' : 0)};
+  left: ${(props) => (props.isStatic ? 'auto' : '50%')};
+  margin-left: ${(props) => (props.isStatic ? 0 : 'calc((-94vw / 2))')};
   display: flex;
   justify-content: space-around;
   padding: 0.4rem;

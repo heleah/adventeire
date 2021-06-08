@@ -24,7 +24,7 @@ const ButtonWrapper = styled.section`
     padding: 0.6rem 0.8rem;
     border: none;
     border-radius: 10px;
-    background-color: #c7600e;
+    background-color: var(--secondary);
     color: var(--grey-lightest);
     box-shadow: 0 0 0.4rem var(--grey-darkest);
   }
