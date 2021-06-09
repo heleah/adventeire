@@ -10,11 +10,13 @@ import Favorites from './pages/Favorites';
 import Filter from './components/Filter';
 
 function App() {
-  /*   useEffect(() => {
-    fetch('http://localhost:4000/')
+  const [allSights, setAllSights] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/sights')
       .then((res) => res.json())
-      .then((response) => setServerMessage(response));
-  }); */
+      .then((sights) => setAllSights(sights));
+  });
 
   return (
     <div className='App'>
@@ -25,7 +27,7 @@ function App() {
             <Home />
           </Route>
           <Route path='/sights'>
-            <Sights />
+            <Sights sights={allSights} />
           </Route>
           <Route path='/favorites'>
             <Favorites />
@@ -43,8 +45,5 @@ function App() {
 export default App;
 
 const MainContainer = styled.main`
-  background-color: var(--grey-lightest-opa);
-  height: 80vh;
   margin: 0 0.8rem;
-  border-radius: 20px;
 `;

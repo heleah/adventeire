@@ -1,3 +1,13 @@
+import styled from 'styled-components';
+
+import { Headline } from './Sights';
+
 export default function Favorites() {
-  return <h2>Favourites</h2>;
+  return (
+    <FavoritesWrapper>
+      <Headline>Favourites</Headline>
+    </FavoritesWrapper>
+  );
 }
+
+const FavoritesWrapper = styled.div``;

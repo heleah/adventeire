@@ -30,11 +30,11 @@ export default createGlobalStyle`
         box-sizing: border-box;
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
         line-height: 1.2;
     }
 
-    body, h1, h2, h3, p {
+    body, h1, h2, h3, h4, p {
         margin: 0;
     }
 
@@ -55,13 +55,8 @@ export default createGlobalStyle`
     h2 {
         font-family: 'Uncial Antiqua', serif;
         font-size: 1.4rem;
-        margin: 1rem;
-        padding-top: 1rem;
+        padding: 1rem;
         color: var(--grey-dark);
-    }
-
-    p {
-        margin: 0 1rem;
     }
 
     img {

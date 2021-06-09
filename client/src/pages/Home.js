@@ -7,7 +7,7 @@ import filterWhite from '../images/selective_white.svg';
 
 export default function Home() {
   return (
-    <>
+    <HomeWrapper>
       <h2>Home</h2>
       <Intro>
         FÁILTE and welcome to <span>adventéire</span>, your guide to the many
@@ -29,11 +29,19 @@ export default function Home() {
         </LinkStyled>
       </ButtonWrapper>
       <ShamrockImg src={shamrock} alt='Shamrock' />
-    </>
+    </HomeWrapper>
   );
 }
 
+const HomeWrapper = styled.div`
+  height: 80vh;
+  border-radius: 20px;
+  background-color: var(--grey-lightest-opa);
+`;
+
 const Intro = styled.p`
+  margin: 0 1rem;
+
   span {
     font-style: italic;
     color: var(--primary-dark);

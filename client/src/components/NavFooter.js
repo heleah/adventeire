@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { NavLink } from 'react-router-dom';
 
 import ireland from '../images/ireland.svg';
@@ -9,13 +9,13 @@ import shamrock from '../images/clover.svg';
 export default function NavFooter({ isStatic }) {
   return (
     <NavWrapper isStatic={isStatic}>
-      <NavLink exact to='/' activeClassName='selected'>
+      <NavLink exact to='/'>
         <img src={ireland} alt='Home' />
       </NavLink>
-      <NavLink to='/sights' activeClassName='selected'>
+      <NavLink to='/sights'>
         <img src={cliffs} alt='Sights' />
       </NavLink>
-      <NavLink to='/favorites' activeClassName='selected'>
+      <NavLink to='/favorites'>
         <img src={shamrock} alt='Favorites' />
       </NavLink>
     </NavWrapper>
@@ -29,7 +29,7 @@ const NavWrapper = styled.footer`
   bottom: ${(props) => (props.isStatic ? 'auto' : 0)};
   left: ${(props) => (props.isStatic ? 'auto' : '50%')};
   margin-left: ${(props) => (props.isStatic ? 0 : 'calc((-94vw / 2))')};
-  display: flex;
+  display: inline-flex;
   justify-content: space-around;
   padding: 0.4rem;
   border-radius: 20px;
@@ -38,7 +38,7 @@ const NavWrapper = styled.footer`
     height: 3rem;
   }
 
-  .selected {
+  .active {
     filter: drop-shadow(0 0 0.2rem var(--primary-darkest));
   }
 `;
