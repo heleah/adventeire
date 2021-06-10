@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { saveToLocal, loadFromLocal } from './lib/localStorage';
 import Header from './components/Header';
 import NavFooter from './components/NavFooter';
 import Home from './pages/Home';
@@ -11,13 +12,23 @@ import Filter from './components/Filter';
 
 function App() {
   const [allSights, setAllSights] = useState([]);
-  const [faveSights, setFaveSights] = useState([]);
+  const [faveSights, setFaveSights] = useState(
+    loadFromLocal('Favourite Sights') ?? []
+  );
 
   useEffect(() => {
     fetch('http://localhost:4000/sights')
       .then((res) => res.json())
       .then((sights) => setAllSights(sights));
   });
+
+  useEffect(() => {
+    saveToLocal('All Sights', allSights);
+  }, [allSights]);
+
+  useEffect(() => {
+    saveToLocal('Favourite Sights', faveSights);
+  }, [faveSights]);
 
   function toggleFavorite(sightToToggle) {
     isFave(sightToToggle)
