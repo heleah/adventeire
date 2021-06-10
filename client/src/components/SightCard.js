@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 import shamrock from '../images/clover.svg';
+import shamrockGreen from '../images/clover_col.svg';
 import infoButton from '../images/info.svg';
 
-export default function SightCard({ sight }) {
+export default function SightCard({ sight, toggleFavorite, isFave }) {
   return (
     <CardWrapper>
       <img src={sight.imgUrl} alt={sight.name} />
@@ -12,7 +13,11 @@ export default function SightCard({ sight }) {
         <p>Co. {sight.county}</p>
       </InfoWrapper>
       <IconWrapper>
-        <FaveShamrock src={shamrock} alt='Fave Icon' />
+        <FaveShamrock
+          src={isFave(sight) ? shamrockGreen : shamrock}
+          alt='Fave Icon'
+          onClick={() => toggleFavorite(sight)}
+        />
         <InfoButton src={infoButton} alt='Info Icon' />
       </IconWrapper>
     </CardWrapper>

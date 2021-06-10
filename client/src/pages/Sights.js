@@ -2,12 +2,18 @@ import styled from 'styled-components/macro';
 
 import SightCard from '../components/SightCard';
 
-export default function Sights({ sights }) {
+export default function Sights({ sights, toggleFavorite, isFave }) {
   return (
     <SightsWrapper>
       <Headline>All Sights</Headline>
       {sights.map((sight) => {
-        return <SightCard sight={sight} />;
+        return (
+          <SightCard
+            sight={sight}
+            toggleFavorite={toggleFavorite}
+            isFave={isFave}
+          />
+        );
       })}
     </SightsWrapper>
   );

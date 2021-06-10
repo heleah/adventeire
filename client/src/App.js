@@ -11,12 +11,35 @@ import Filter from './components/Filter';
 
 function App() {
   const [allSights, setAllSights] = useState([]);
+  const [faveSights, setFaveSights] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:4000/sights')
       .then((res) => res.json())
       .then((sights) => setAllSights(sights));
   });
+
+  function toggleFavorite(sightToToggle) {
+    isFave(sightToToggle)
+      ? removeFromFaves(sightToToggle)
+      : addToFaves(sightToToggle);
+  }
+
+  function isFave(sightInQuestion) {
+    return faveSights.find((sight) => sight._id === sightInQuestion._id);
+  }
+
+  function removeFromFaves(sightToRemove) {
+    const sightsToKeep = faveSights.filter(
+      (sight) => sight._id !== sightToRemove._id
+    );
+    setFaveSights(sightsToKeep);
+  }
+
+  function addToFaves(clickedSight) {
+    const faveSight = allSights.find((sight) => sight._id === clickedSight._id);
+    setFaveSights([faveSight, ...faveSights]);
+  }
 
   return (
     <div className='App'>
@@ -27,10 +50,18 @@ function App() {
             <Home />
           </Route>
           <Route path='/sights'>
-            <Sights sights={allSights} />
+            <Sights
+              sights={allSights}
+              toggleFavorite={toggleFavorite}
+              isFave={isFave}
+            />
           </Route>
           <Route path='/favorites'>
-            <Favorites />
+            <Favorites
+              faveSights={faveSights}
+              toggleFavorite={toggleFavorite}
+              isFave={isFave}
+            />
           </Route>
           <Route path='/filter'>
             <Filter />
