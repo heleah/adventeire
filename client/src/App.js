@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Sights from './pages/Sights';
 import Favorites from './pages/Favorites';
 import Filter from './components/Filter';
+import DetailsView from './components/DetailsView';
 
 function App() {
   const [allSights, setAllSights] = useState([]);
@@ -60,7 +61,7 @@ function App() {
           <Route exact path='/'>
             <Home />
           </Route>
-          <Route path='/sights'>
+          <Route exact path='/sights'>
             <Sights
               sights={allSights}
               toggleFavorite={toggleFavorite}
@@ -76,6 +77,9 @@ function App() {
           </Route>
           <Route path='/filter'>
             <Filter />
+          </Route>
+          <Route path={'/sights/:sightId'}>
+            <DetailsView />
           </Route>
         </Switch>
       </MainContainer>
