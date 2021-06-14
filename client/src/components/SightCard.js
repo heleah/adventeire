@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import shamrock from '../images/clover.svg';
@@ -18,7 +19,9 @@ export default function SightCard({ sight, toggleFavorite, isFave }) {
           alt='Fave Icon'
           onClick={() => toggleFavorite(sight)}
         />
-        <InfoButton src={infoButton} alt='Info Icon' />
+        <Link to={`/sights/${sight._id}`}>
+          <InfoButton src={infoButton} alt='Info Icon' />
+        </Link>
       </IconWrapper>
     </CardWrapper>
   );

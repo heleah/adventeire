@@ -2,22 +2,34 @@ import { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { saveToLocal, loadFromLocal } from './lib/localStorage';
 import Header from './components/Header';
 import NavFooter from './components/NavFooter';
 import Home from './pages/Home';
 import Sights from './pages/Sights';
 import Favorites from './pages/Favorites';
 import Filter from './components/Filter';
+import DetailsView from './components/DetailsView';
 
 function App() {
   const [allSights, setAllSights] = useState([]);
-  const [faveSights, setFaveSights] = useState([]);
+  const [faveSights, setFaveSights] = useState(
+    loadFromLocal('Favourite Sights') ?? []
+  );
 
   useEffect(() => {
     fetch('http://localhost:4000/sights')
       .then((res) => res.json())
       .then((sights) => setAllSights(sights));
   });
+
+  useEffect(() => {
+    saveToLocal('All Sights', allSights);
+  }, [allSights]);
+
+  useEffect(() => {
+    saveToLocal('Favourite Sights', faveSights);
+  }, [faveSights]);
 
   function toggleFavorite(sightToToggle) {
     isFave(sightToToggle)
@@ -49,7 +61,7 @@ function App() {
           <Route exact path='/'>
             <Home />
           </Route>
-          <Route path='/sights'>
+          <Route exact path='/sights'>
             <Sights
               sights={allSights}
               toggleFavorite={toggleFavorite}
@@ -65,6 +77,9 @@ function App() {
           </Route>
           <Route path='/filter'>
             <Filter />
+          </Route>
+          <Route path={'/sights/:sightId'}>
+            <DetailsView />
           </Route>
         </Switch>
       </MainContainer>

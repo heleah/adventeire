@@ -54,26 +54,23 @@ const ButtonWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 1.4rem;
-
-  button {
-    padding: 0.8rem 1rem;
-    border: none;
-    border-radius: 10px;
-    background-color: var(--secondary);
-    color: var(--grey-lightest);
-    box-shadow: 0 0 0.4rem var(--grey-darkest);
-    font-size: 1rem;
-  }
 `;
 
 const LinkStyled = styled(Link)`
   text-decoration: none;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   display: flex;
   align-items: center;
   gap: 1rem;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--secondary);
+  color: var(--grey-lightest);
+  box-shadow: 0 0 0.4rem var(--grey-darkest);
+  font-size: 1rem;
 
   img {
     height: 2rem;

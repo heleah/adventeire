@@ -4,7 +4,7 @@ import SightCard from '../components/SightCard';
 
 export default function Sights({ sights, toggleFavorite, isFave }) {
   return (
-    <SightsWrapper>
+    <>
       <Headline>All Sights</Headline>
       {sights.map((sight) => {
         return (
@@ -15,11 +15,9 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
           />
         );
       })}
-    </SightsWrapper>
+    </>
   );
 }
-
-const SightsWrapper = styled.div``;
 
 export const Headline = styled.h2`
   border-radius: 20px;
