@@ -18,7 +18,7 @@ function App() {
   );
 
   useEffect(() => {
-    fetch('/sights')
+    fetch('/api/sights')
       .then((res) => res.json())
       .then((sights) => setAllSights(sights));
   }, []);

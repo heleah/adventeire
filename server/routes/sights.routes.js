@@ -9,14 +9,14 @@ import {
 
 const router = express.Router();
 
-router.get('/sights', getSights);
+router.get('/api/sights', getSights);
 
-router.get('/sights/:sightId', getSight);
+router.get('/api/sights/:sightId', getSight);
 
-router.post('/sights', postSight);
+router.post('/api/sights', postSight);
 
-router.put('/sights/:sightId', updateSight);
+router.put('/api/sights/:sightId', updateSight);
 
-router.delete('/sights/:sightId', deleteSight);
+router.delete('/api/sights/:sightId', deleteSight);
 
 export default router;
