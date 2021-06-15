@@ -16,7 +16,7 @@ export default function DetailsView() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:4000/sights/' + sightId)
+    fetch('/api/sights/' + sightId)
       .then((result) => result.json())
       .then((data) => setDetailedSight(data));
   }, [sightId]);
