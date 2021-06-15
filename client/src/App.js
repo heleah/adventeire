@@ -8,7 +8,7 @@ import NavFooter from './components/NavFooter';
 import Home from './pages/Home';
 import Sights from './pages/Sights';
 import Favorites from './pages/Favorites';
-import Filter from './components/Filter';
+import Filtering from './pages/Filtering';
 import DetailsView from './components/DetailsView';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
   );
 
   useEffect(() => {
-    fetch('http://localhost:4000/sights')
+    fetch('/sights')
       .then((res) => res.json())
       .then((sights) => setAllSights(sights));
   });
@@ -76,7 +76,7 @@ function App() {
             />
           </Route>
           <Route path='/filter'>
-            <Filter />
+            <Filtering sights={allSights} />
           </Route>
           <Route path={'/sights/:sightId'}>
             <DetailsView />
