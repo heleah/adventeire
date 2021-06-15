@@ -21,7 +21,7 @@ function App() {
     fetch('/sights')
       .then((res) => res.json())
       .then((sights) => setAllSights(sights));
-  });
+  }, []);
 
   useEffect(() => {
     saveToLocal('All Sights', allSights);
