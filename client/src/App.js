@@ -8,7 +8,6 @@ import NavFooter from './components/NavFooter';
 import Home from './pages/Home';
 import Sights from './pages/Sights';
 import Favorites from './pages/Favorites';
-import Filtering from './pages/Filtering';
 import DetailsView from './components/DetailsView';
 
 function App() {
@@ -75,9 +74,6 @@ function App() {
               isFave={isFave}
             />
           </Route>
-          <Route path='/filter'>
-            <Filtering sights={allSights} />
-          </Route>
           <Route path={'/sights/:sightId'}>
             <DetailsView />
           </Route>
@@ -92,4 +88,5 @@ export default App;
 
 const MainContainer = styled.main`
   margin: 0 0.8rem;
+  padding-bottom: 4rem;
 `;

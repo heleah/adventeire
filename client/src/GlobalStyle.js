@@ -22,6 +22,7 @@ export default createGlobalStyle`
         --grey-darkest: hsl(132, 10%, 10%);
 
         --grey-lightest-opa: hsla(132, 10%, 96%, 0.5);
+        --secondary-lightest-opa: hsla(27,87%,94%, 0.5);
     }
 
     *,
@@ -64,4 +65,16 @@ export default createGlobalStyle`
         height: auto;
         display: block;
     }
+
+    .rmsc {
+        --rmsc-main: var(--primary);
+        --rmsc-hover: #f1f3f5;
+        --rmsc-selected: var(--secondary-light);
+        --rmsc-border: none;
+        --rmsc-gray: var(--primary-darkest);
+        --rmsc-bg: var(--grey-lightest);
+        --rmsc-p: 10px; /* Spacing */
+        --rmsc-radius: 4px; /* Radius */
+        --rmsc-h: 38px; /* Height */
+}
 `;
