@@ -13,7 +13,8 @@ const [detailedSight, setDetailedSight] = useState({
     'https://cdn.shopify.com/s/files/1/2717/4124/articles/Giant_footsteps_1_2048x.progressive.jpg?v=1543323286',
 });
 
-let sightId = '60c0bc5a4aad416f87855e91';
+//let { sightId } = '60c0bc5a4aad416f87855e91';
+let { sightId } = useParams('60c0bc5a4aad416f87855e91');
 
 <DetailsView />;
 ```

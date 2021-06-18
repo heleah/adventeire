@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import shamrock from '../images/shamrock.svg';
 import cliffsWhite from '../images/cliff_white.svg';
-import filterWhite from '../images/selective_white.svg';
 
 export default function Home() {
   return (
@@ -11,20 +10,14 @@ export default function Home() {
       <h2>Home</h2>
       <Intro>
         FÁILTE and welcome to <span>adventéire</span>, your guide to the many
-        miraculous sights of Ireland! <br /> Start by either browsing through
-        all the sights or by filtering by county:
+        miraculous sights of Ireland! <br /> Start on the following page by
+        either browsing through all the sights or by filtering by county:
       </Intro>
       <ButtonWrapper>
         <LinkStyled to='/sights'>
           <Button>
-            See All
+            Start Exploring
             <img src={cliffsWhite} alt='Sights Icon' />
-          </Button>
-        </LinkStyled>
-        <LinkStyled to='/filter'>
-          <Button>
-            Filter
-            <img src={filterWhite} alt='Filter Icon' />
           </Button>
         </LinkStyled>
       </ButtonWrapper>
