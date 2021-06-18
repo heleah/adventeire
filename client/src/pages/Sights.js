@@ -19,7 +19,6 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
       selected.find((county) => county.value === sight.county.toLowerCase())
     );
     setSelectedSights(filteredSights);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sights, selected]);
 
   return (

@@ -73,8 +73,8 @@ export default createGlobalStyle`
         --rmsc-border: none;
         --rmsc-gray: var(--primary-darkest);
         --rmsc-bg: var(--grey-lightest);
-        --rmsc-p: 10px; /* Spacing */
-        --rmsc-radius: 4px; /* Radius */
-        --rmsc-h: 38px; /* Height */
-}
+        --rmsc-spacing: 10px;
+        --rmsc-radius: 4px;
+        --rmsc-height: 38px;
+    }
 `;
