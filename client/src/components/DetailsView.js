@@ -30,7 +30,7 @@ export default function DetailsView() {
         {detailedSight.county}
       </p>
       <p>
-        <span>Tickets (Adult):</span> € {detailedSight.price}
+        <span>Ticket Required:</span> {detailedSight.ticket}
       </p>
       <WebsiteButton>
         <a href={detailedSight.website} target='_blank' rel='noreferrer'>

@@ -4,7 +4,8 @@ const sightSchema = new mongoose.Schema({
   name: String,
   address: String,
   county: String,
-  price: Number,
+  description: String,
+  ticket: String,
   website: String,
   imgUrl: String,
 });
@@ -19,7 +20,8 @@ TEMPLATE FOR POSTMAN
   "name": "",
   "address": "",
   "county": "",
-  "price": ,
+  "description": "",
+  "ticket": "",
   "website": "",
   "imgUrl": ""
 } */
