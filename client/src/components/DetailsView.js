@@ -25,6 +25,7 @@ export default function DetailsView() {
     <DetailsWrapper>
       <h2>{detailedSight.name}</h2>
       <img src={detailedSight.imgUrl} alt={detailedSight.name} />
+      <p>{detailedSight.description}</p>
       <p>
         <span>Address:</span> {detailedSight.address}, Co.{' '}
         {detailedSight.county}
