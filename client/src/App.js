@@ -88,5 +88,6 @@ export default App;
 
 const MainContainer = styled.main`
   margin: 0 0.8rem;
-  padding-bottom: 4rem;
+  height: calc(100vh - 7.44rem);
+  overflow-y: scroll;
 `;

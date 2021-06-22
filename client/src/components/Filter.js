@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import MultiSelect from 'react-multi-select-component';
 
 export default function Filter({ selected, setSelected, counties }) {
+  console.log(selected, 'selected');
+  console.log(counties, 'Counties');
   return (
     <MultiSelectStyled
       options={counties}
