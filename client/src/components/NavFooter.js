@@ -32,7 +32,7 @@ const NavWrapper = styled.footer`
   display: inline-flex;
   justify-content: space-around;
   padding: 0.4rem;
-  border-radius: 20px;
+  border-radius: 8px 8px 10px 10px;
 
   img {
     height: 3rem;

@@ -5,14 +5,30 @@ import Filter from '../components/Filter';
 import SightCard from '../components/SightCard';
 
 export default function Sights({ sights, toggleFavorite, isFave }) {
-  const counties = [
-    { label: 'Antrim (UK)', value: 'antrim (uk)' },
-    { label: 'Clare', value: 'clare' },
-    { label: 'Cork', value: 'cork' },
-    { label: 'Dublin', value: 'dublin' },
-  ];
-  const [selected, setSelected] = useState(counties);
+  const [selected, setSelected] = useState([]);
   const [selectedSights, setSelectedSights] = useState(sights);
+  const [counties, setCounties] = useState([]);
+
+  useEffect(() => {
+    function getCountiesForFilter() {
+      const allCounties = sights.map((sight) => sight.county);
+      let uniqueCounties = [];
+      const map = {};
+      allCounties.forEach((county) => {
+        if (!map[JSON.stringify(county)]) {
+          map[JSON.stringify(county)] = true;
+          uniqueCounties.push(county);
+        }
+      });
+      const countiesAsFilterObjects = uniqueCounties.map((county) => ({
+        label: county,
+        value: county.toLowerCase(),
+      }));
+      return countiesAsFilterObjects;
+    }
+    setSelected(getCountiesForFilter());
+    setCounties(getCountiesForFilter());
+  }, [sights]);
 
   useEffect(() => {
     const filteredSights = sights.filter((sight) =>

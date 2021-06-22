@@ -26,7 +26,7 @@ function postSight(req, res) {
     address: req.body.address,
     county: req.body.county,
     description: req.body.description,
-    ticket: req.body.price,
+    ticket: req.body.ticket,
     website: req.body.website,
     imgUrl: req.body.imgUrl,
   });
