@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes, { object } from 'prop-types';
 import styled from 'styled-components/macro';
 
 import Filter from '../components/Filter';
@@ -58,6 +59,12 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
     </>
   );
 }
+
+Sights.propTypes = {
+  sights: PropTypes.arrayOf(object),
+  toggleFavorite: PropTypes.func,
+  isFave: PropTypes.func,
+};
 
 export const Headline = styled.h2`
   padding: 0.8rem 1rem;

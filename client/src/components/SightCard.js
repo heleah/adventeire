@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import shamrock from '../images/clover.svg';
@@ -26,6 +27,12 @@ export default function SightCard({ sight, toggleFavorite, isFave }) {
     </CardWrapper>
   );
 }
+
+SightCard.propTypes = {
+  sight: PropTypes.object,
+  toggleFavorite: PropTypes.func,
+  isFave: PropTypes.func,
+};
 
 const CardWrapper = styled.section`
   display: grid;

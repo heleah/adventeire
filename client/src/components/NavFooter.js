@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import ireland from '../images/ireland.svg';
@@ -21,6 +22,10 @@ export default function NavFooter({ isStatic }) {
     </NavWrapper>
   );
 }
+
+NavFooter.propTypes = {
+  isStatic: PropTypes.bool,
+};
 
 const NavWrapper = styled.footer`
   width: ${(props) => (props.isStatic ? 'auto' : '94vw')};
