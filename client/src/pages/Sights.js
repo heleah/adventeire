@@ -5,6 +5,8 @@ import styled from 'styled-components/macro';
 import Filter from '../components/Filter';
 import SightCard from '../components/SightCard';
 
+import searchGlass from '../images/search.svg';
+
 export default function Sights({ sights, toggleFavorite, isFave }) {
   const [selected, setSelected] = useState([]);
   const [selectedSights, setSelectedSights] = useState(sights);
@@ -44,9 +46,26 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
     setSelectedSights(sightsAlphabeticallyByCounty);
   }, [sights, selected]);
 
+  function searchSights(event) {
+    const filtered = sights.filter((sight) =>
+      sight.name.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    setSelectedSights(filtered);
+  }
+
   return (
     <>
-      <Headline>Sights</Headline>
+      <Headline>
+        Sights
+        <SightSearchWrapper>
+          <SightSearchBar
+            type='text'
+            placeholder='Search Sight...'
+            onChange={searchSights}
+          />
+          <SearchIcon src={searchGlass} alt='Search Sight' />
+        </SightSearchWrapper>
+      </Headline>
       <Filter
         sights={sights}
         selected={selected}
@@ -76,4 +95,25 @@ export const Headline = styled.h2`
   padding: 0.8rem 1rem;
   border-radius: 20px;
   background-color: var(--grey-lightest-opa);
+`;
+
+const SightSearchWrapper = styled.div`
+  display: inline-flex;
+  float: right;
+  gap: 0.5rem;
+`;
+
+const SightSearchBar = styled.input`
+  width: 10rem;
+  border: none;
+  background: transparent;
+  padding: 0.2rem;
+  text-align: right;
+  font-size: 1rem;
+`;
+
+const SearchIcon = styled.img`
+  padding-right: 0;
+  height: 1.5rem;
+  opacity: 0.5;
 `;
