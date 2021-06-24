@@ -47,10 +47,17 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
   }, [sights, selected]);
 
   function searchSights(event) {
-    const filtered = sights.filter((sight) =>
+    const filteredSights = sights.filter((sight) =>
       sight.name.toLowerCase().includes(event.target.value.toLowerCase())
     );
-    setSelectedSights(filtered);
+    const filteredCounties = counties.filter((county) =>
+      filteredSights.some((sight) => sight.county === county.label)
+    );
+    setSelected(filteredCounties);
+    const searchResults = filteredSights.map((sight) =>
+      sight.name.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    setSelectedSights(searchResults);
   }
 
   return (
