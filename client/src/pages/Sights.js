@@ -19,6 +19,7 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
         if (!map[JSON.stringify(county)]) {
           map[JSON.stringify(county)] = true;
           uniqueCounties.push(county);
+          uniqueCounties.sort();
         }
       });
       const countiesAsFilterObjects = uniqueCounties.map((county) => ({
@@ -35,7 +36,12 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
     const filteredSights = sights.filter((sight) =>
       selected.find((county) => county.value === sight.county.toLowerCase())
     );
-    setSelectedSights(filteredSights);
+    const sightsAlphabeticallyByCounty = filteredSights.sort((a, b) => {
+      let nameA = a.county.toUpperCase();
+      let nameB = b.county.toUpperCase();
+      return nameA < nameB ? -1 : 1;
+    });
+    setSelectedSights(sightsAlphabeticallyByCounty);
   }, [sights, selected]);
 
   return (
