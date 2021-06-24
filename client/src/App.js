@@ -19,7 +19,14 @@ function App() {
   useEffect(() => {
     fetch('/api/sights')
       .then((res) => res.json())
-      .then((sights) => setAllSights(sights));
+      .then((sights) => {
+        const sightsAlphabetically = sights.sort((a, b) => {
+          let nameA = a.name.toUpperCase();
+          let nameB = b.name.toUpperCase();
+          return nameA < nameB ? -1 : 1;
+        });
+        setAllSights(sightsAlphabetically);
+      });
   }, []);
 
   useEffect(() => {
