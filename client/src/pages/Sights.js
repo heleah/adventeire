@@ -19,6 +19,7 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
       sight.name.toLowerCase().includes(searchValue.toLowerCase())
     );
     setSelectedSights(filteredSights);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue]);
 
   useEffect(() => {
