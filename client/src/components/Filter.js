@@ -3,12 +3,22 @@ import PropTypes, { object } from 'prop-types';
 
 import MultiSelect from 'react-multi-select-component';
 
-export default function Filter({ selected, setSelected, counties }) {
+export default function Filter({
+  selected,
+  setSelected,
+  counties,
+  setSearchValue,
+}) {
+  function handleFilterChange(e) {
+    setSearchValue('');
+    setSelected(e);
+  }
+
   return (
     <MultiSelectStyled
       options={counties}
       value={selected}
-      onChange={setSelected}
+      onChange={handleFilterChange}
       labelledBy='Select'
     />
   );
@@ -18,6 +28,7 @@ Filter.propTypes = {
   selected: PropTypes.arrayOf(object),
   setSelected: PropTypes.func,
   counties: PropTypes.arrayOf(object),
+  setSearchValue: PropTypes.func,
 };
 
 const MultiSelectStyled = styled(MultiSelect)`

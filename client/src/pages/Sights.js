@@ -11,6 +11,15 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
   const [selected, setSelected] = useState([]);
   const [selectedSights, setSelectedSights] = useState(sights);
   const [counties, setCounties] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
+
+  useEffect(() => {
+    setSelected(counties);
+    const filteredSights = sights.filter((sight) =>
+      sight.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setSelectedSights(filteredSights);
+  }, [searchValue]);
 
   useEffect(() => {
     function getCountiesForFilter() {
@@ -46,20 +55,6 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
     setSelectedSights(sightsAlphabeticallyByCounty);
   }, [sights, selected]);
 
-  function searchSights(event) {
-    const filteredSights = sights.filter((sight) =>
-      sight.name.toLowerCase().includes(event.target.value.toLowerCase())
-    );
-    const filteredCounties = counties.filter((county) =>
-      filteredSights.some((sight) => sight.county === county.label)
-    );
-    setSelected(filteredCounties);
-    const searchResults = filteredSights.map((sight) =>
-      sight.name.toLowerCase().includes(event.target.value.toLowerCase())
-    );
-    setSelectedSights(searchResults);
-  }
-
   return (
     <>
       <Headline>
@@ -68,7 +63,8 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
           <SightSearchBar
             type='text'
             placeholder='Search Sight...'
-            onChange={searchSights}
+            value={searchValue}
+            onChange={(event) => setSearchValue(event.target.value)}
           />
           <SearchIcon src={searchGlass} alt='Search Sight' />
         </SightSearchWrapper>
@@ -78,6 +74,7 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
         selected={selected}
         setSelected={setSelected}
         counties={counties}
+        setSearchValue={setSearchValue}
       />
       {selectedSights.map((sight) => {
         return (
