@@ -15,6 +15,8 @@ function App() {
   const [faveSights, setFaveSights] = useState(
     loadFromLocal('Favourite Sights') ?? []
   );
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [selectDate, setSelectDate] = useState('');
 
   useEffect(() => {
     fetch('/api/sights')
@@ -59,6 +61,10 @@ function App() {
     setFaveSights([faveSight, ...faveSights]);
   }
 
+  function toggleCalendar() {
+    setShowCalendar(!showCalendar);
+  }
+
   return (
     <div className='App'>
       <Header />
@@ -82,7 +88,13 @@ function App() {
             />
           </Route>
           <Route path={'/sights/:sightId'}>
-            <DetailsView />
+            <DetailsView
+              showCalendar={showCalendar}
+              onSetShowCalendar={setShowCalendar}
+              toggleCalendar={toggleCalendar}
+              selectDate={selectDate}
+              onSetSelectDate={setSelectDate}
+            />
           </Route>
         </Switch>
       </MainContainer>

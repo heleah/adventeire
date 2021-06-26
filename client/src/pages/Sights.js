@@ -80,6 +80,7 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
       {selectedSights.map((sight) => {
         return (
           <SightCard
+            key={sight._id}
             sight={sight}
             toggleFavorite={toggleFavorite}
             isFave={isFave}
