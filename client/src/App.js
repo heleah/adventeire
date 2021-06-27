@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Sights from './pages/Sights';
 import Favorites from './pages/Favorites';
 import DetailsView from './components/DetailsView';
+import Itinerary from './pages/Itinerary';
 
 function App() {
   const [allSights, setAllSights] = useState([]);
@@ -92,9 +93,12 @@ function App() {
               showCalendar={showCalendar}
               onSetShowCalendar={setShowCalendar}
               toggleCalendar={toggleCalendar}
-              selectDate={selectDate}
               onSetSelectDate={setSelectDate}
+              selectDate={selectDate}
             />
+          </Route>
+          <Route path='/itinerary'>
+            <Itinerary />
           </Route>
         </Switch>
       </MainContainer>

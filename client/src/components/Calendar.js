@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { MdNavigateBefore } from 'react-icons/md';
 import { MdNavigateNext } from 'react-icons/md';
 
-export default function Calendar({ onSetShowCalendar, onSetSelectDate }) {
+export default function Calendar({
+  onSetShowCalendar,
+  selectDate,
+  onSetSelectDate,
+  sight,
+}) {
   const totalDaysOfEachMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const totalDaysOfEachMonthIfLeapYear = [
     31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
@@ -32,6 +37,7 @@ export default function Calendar({ onSetShowCalendar, onSetSelectDate }) {
   const [month, setMonth] = useState(date.getMonth());
   const [year, setYear] = useState(date.getFullYear());
   const [startDay, setStartDay] = useState(getStartDayOfMonth(date));
+  const [dateSightCombos, setDateSightCombos] = useState([]);
 
   useEffect(() => {
     setDay(date.getDate());
@@ -52,6 +58,30 @@ export default function Calendar({ onSetShowCalendar, onSetSelectDate }) {
   const days = isLeapYear(year)
     ? totalDaysOfEachMonthIfLeapYear
     : totalDaysOfEachMonth;
+
+  function handleModalOK() {
+    /*     if (dateSightCombos.some((combo) => combo.date === selectDate)) {
+      setDateSightCombos({
+        ...dateSightCombos,
+        date: [...dateSightCombos.date, sight.name],
+      });
+    } else { */
+    /*     setDateSightCombos([
+      ...dateSightCombos,
+      {
+        date: selectDate,
+        sight: sight.name,
+      },
+    ]); */
+    //}
+    let allCombos = dateSightCombos;
+    let newCombo = { date: selectDate, sight: sight.name };
+    allCombos.push(newCombo);
+    setDateSightCombos(...dateSightCombos, allCombos);
+
+    console.log(selectDate, sight.name, dateSightCombos);
+    onSetShowCalendar(false);
+  }
 
   return (
     <Modal>
@@ -95,39 +125,46 @@ export default function Calendar({ onSetShowCalendar, onSetSelectDate }) {
               })}
           </Body>
         </CalendarView>
-        <ButtonClose onClick={() => onSetShowCalendar(false)}>OK</ButtonClose>
+        <ButtonCloseWrapper>
+          <ButtonClose onClick={handleModalOK}>OK</ButtonClose>
+          <ButtonClose onClick={() => onSetShowCalendar(false)}>
+            Cancel
+          </ButtonClose>
+        </ButtonCloseWrapper>
       </div>
       <div className='modal_open--overlay'></div>
     </Modal>
   );
 }
 
-/* Calendar.propTypes = {
+Calendar.propTypes = {
   onSetShowCalendar: PropTypes.func,
+  selectDate: PropTypes.string,
   onSetSelectDate: PropTypes.func,
-}; */
+  sight: PropTypes.object,
+};
 
 const Modal = styled.div`
   position: relative;
   .modal_open {
+    z-index: 999;
     display: flex;
     flex-flow: column wrap;
-    background-color: var(--grey-lightest);
-    border-radius: 0.5rem;
-    max-width: 26rem;
+    position: absolute;
     margin: auto;
     padding: 1rem;
-    position: absolute;
-    z-index: 999;
+    max-width: 26rem;
+    border-radius: 0.5rem;
+    background-color: var(--grey-lightest);
   }
   .modal_open--overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 `;
 
@@ -138,46 +175,51 @@ const CalendarView = styled.section`
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
+  padding: 0.5rem 0.5rem 0.25rem 0.5rem;
   background-color: var(--primary-dark);
   color: var(--grey-lightest);
   font-weight: bold;
-  padding: 0.5rem 0.5rem 0.25rem 0.5rem;
 `;
 
 const Button = styled.button`
-  background-color: transparent;
   border: none;
+  background-color: transparent;
   color: var(--grey-lightest);
+  cursor: pointer;
   .icon {
     font-size: 2rem;
   }
-  cursor: pointer;
 `;
 
 const Body = styled.article`
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 `;
 
 const Day = styled.div`
-  background-color: ${(props) => props.isSelected && 'var(--secondary-light)'};
-  border: ${(props) => props.isToday && '1px solid var(--grey-lightest)'};
   display: flex;
   align-items: center;
   justify-content: center;
   width: 14.2%;
   height: 2.5rem;
+  background-color: ${(props) => props.isSelected && 'var(--secondary-light)'};
+  border: ${(props) => props.isToday && '1px solid var(--grey-lightest)'};
   cursor: pointer;
 `;
 
+const ButtonCloseWrapper = styled.div`
+  display: inline-flex;
+  justify-content: flex-end;
+`;
+
 const ButtonClose = styled.button`
-  background-color: transparent;
+  margin-top: 1rem;
+  text-align: right;
   border: none;
+  background-color: transparent;
   color: var(--primary-darkest);
   font-size: 1rem;
   font-weight: bold;
-  text-align: right;
-  margin-top: 1rem;
   cursor: pointer;
 `;

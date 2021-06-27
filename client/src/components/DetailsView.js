@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Calendar from '../components/Calendar';
@@ -12,8 +13,8 @@ export default function DetailsView({
   showCalendar,
   onSetShowCalendar,
   toggleCalendar,
-  selectDate,
   onSetSelectDate,
+  selectDate,
 }) {
   const [detailedSight, setDetailedSight] = useState({});
 
@@ -33,12 +34,14 @@ export default function DetailsView({
     <DetailsWrapper>
       <h2>{detailedSight.name}</h2>
       <img src={detailedSight.imgUrl} alt={detailedSight.name} />
-      {showCalendar ? (
+      {showCalendar && (
         <Calendar
           onSetShowCalendar={onSetShowCalendar}
           onSetSelectDate={onSetSelectDate}
+          selectDate={selectDate}
+          sight={detailedSight}
         />
-      ) : null}
+      )}
       <p>{detailedSight.description}</p>
       <p>
         <span>Address:</span> {detailedSight.address}, Co.{' '}
@@ -64,6 +67,13 @@ export default function DetailsView({
     </DetailsWrapper>
   );
 }
+
+DetailsView.propTypes = {
+  showCalendar: PropTypes.bool,
+  onSetShowCalendar: PropTypes.func,
+  toggleCalendar: PropTypes.func,
+  onSetSelectDate: PropTypes.func,
+};
 
 const DetailsWrapper = styled.div`
   display: flex;
