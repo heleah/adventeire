@@ -9,12 +9,15 @@ import Home from './pages/Home';
 import Sights from './pages/Sights';
 import Favorites from './pages/Favorites';
 import DetailsView from './components/DetailsView';
+import Itinerary from './pages/Itinerary';
 
 function App() {
   const [allSights, setAllSights] = useState([]);
   const [faveSights, setFaveSights] = useState(
     loadFromLocal('Favourite Sights') ?? []
   );
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [selectDate, setSelectDate] = useState('');
 
   useEffect(() => {
     fetch('/api/sights')
@@ -59,6 +62,10 @@ function App() {
     setFaveSights([faveSight, ...faveSights]);
   }
 
+  function toggleCalendar() {
+    setShowCalendar(!showCalendar);
+  }
+
   return (
     <div className='App'>
       <Header />
@@ -82,7 +89,16 @@ function App() {
             />
           </Route>
           <Route path={'/sights/:sightId'}>
-            <DetailsView />
+            <DetailsView
+              showCalendar={showCalendar}
+              onSetShowCalendar={setShowCalendar}
+              toggleCalendar={toggleCalendar}
+              onSetSelectDate={setSelectDate}
+              selectDate={selectDate}
+            />
+          </Route>
+          <Route path='/itinerary'>
+            <Itinerary />
           </Route>
         </Switch>
       </MainContainer>

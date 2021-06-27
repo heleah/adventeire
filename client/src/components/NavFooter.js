@@ -10,14 +10,14 @@ import shamrock from '../images/clover.svg';
 export default function NavFooter({ isStatic }) {
   return (
     <NavWrapper isStatic={isStatic}>
-      <NavLink exact to='/'>
-        <img src={ireland} alt='Home' />
-      </NavLink>
       <NavLink to='/sights'>
         <img src={cliffs} alt='Sights' />
       </NavLink>
       <NavLink to='/favorites'>
         <img src={shamrock} alt='Favorites' />
+      </NavLink>
+      <NavLink to='/itinerary'>
+        <img src={ireland} alt='Itinerary' />
       </NavLink>
     </NavWrapper>
   );
