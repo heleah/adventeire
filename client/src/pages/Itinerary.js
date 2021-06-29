@@ -32,13 +32,15 @@ export default function Itinerary({ dateSightCombos, setDateSightCombos }) {
   }, [dateSightCombos]);
 
   function removeFromItinerary(comboToRemove) {
+    console.log(comboToRemove);
     const remaining = dateSightCombos.filter(
       (combo) =>
-        (combo.sight._id && combo.date) !==
-        (comboToRemove.sight._id && comboToRemove.date)
+        combo.sight._id !== comboToRemove.sight._id ||
+        combo.date !== comboToRemove.date
     );
     setDateSightCombos(remaining);
   }
+  console.log(dateSightCombos);
 
   return (
     <>
