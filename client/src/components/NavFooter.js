@@ -2,22 +2,21 @@ import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-import ireland from '../images/ireland.svg';
-//import ireland_col from '../images/ireland_col.svg';
-import cliffs from '../images/cliff.svg';
-import shamrock from '../images/clover.svg';
+import { ReactComponent as IrelandIcon } from '../images/ireland.svg';
+import { ReactComponent as CliffsIcon } from '../images/cliff.svg';
+import { ReactComponent as ShamrockIcon } from '../images/clover.svg';
 
 export default function NavFooter({ isStatic }) {
   return (
     <NavWrapper isStatic={isStatic}>
       <NavLink to='/sights'>
-        <img src={cliffs} alt='Sights' />
+        <CliffsIconStyled title='Sights' role='img' />
       </NavLink>
       <NavLink to='/favorites'>
-        <img src={shamrock} alt='Favorites' />
+        <ShamrockIconStyled title='Favorites' role='img' />
       </NavLink>
       <NavLink to='/itinerary'>
-        <img src={ireland} alt='Itinerary' />
+        <IrelandIconStyled title='Itinerary' role='img' />
       </NavLink>
     </NavWrapper>
   );
@@ -36,14 +35,39 @@ const NavWrapper = styled.footer`
   margin-left: ${(props) => (props.isStatic ? 0 : 'calc((-94vw / 2))')};
   display: inline-flex;
   justify-content: space-around;
-  padding: 0.4rem;
+  align-items: center;
+  padding-top: 0.5rem;
   border-radius: 8px 8px 10px 10px;
+`;
 
-  img {
-    height: 3rem;
+const CliffsIconStyled = styled(CliffsIcon)`
+  height: 2.8rem;
+  width: 2.8rem;
+
+  .active & circle,
+  .active & path {
+    fill: var(--primary-dark);
+    stroke: var(--primary-dark);
   }
+`;
 
-  .active {
-    filter: drop-shadow(0 0 0.2rem var(--primary-darkest));
+const ShamrockIconStyled = styled(ShamrockIcon)`
+  height: 2.8rem;
+  width: 2.8rem;
+
+  .active & path {
+    fill: var(--primary-dark);
+    stroke: var(--primary-dark);
+  }
+`;
+
+const IrelandIconStyled = styled(IrelandIcon)`
+  height: 2.8rem;
+  width: 2.8rem;
+
+  .active & circle,
+  .active & path {
+    fill: var(--primary-dark);
+    stroke: var(--primary-dark);
   }
 `;
