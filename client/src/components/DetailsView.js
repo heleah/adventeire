@@ -15,6 +15,8 @@ export default function DetailsView({
   toggleCalendar,
   onSetSelectDate,
   selectDate,
+  dateSightCombos,
+  setDateSightCombos,
 }) {
   const [detailedSight, setDetailedSight] = useState({});
 
@@ -40,6 +42,8 @@ export default function DetailsView({
           onSetSelectDate={onSetSelectDate}
           selectDate={selectDate}
           sight={detailedSight}
+          dateSightCombos={dateSightCombos}
+          setDateSightCombos={setDateSightCombos}
         />
       )}
       <p>{detailedSight.description}</p>
@@ -73,6 +77,8 @@ DetailsView.propTypes = {
   onSetShowCalendar: PropTypes.func,
   toggleCalendar: PropTypes.func,
   onSetSelectDate: PropTypes.func,
+  dateSightCombos: PropTypes.array,
+  setDateSightCombos: PropTypes.func,
 };
 
 const DetailsWrapper = styled.div`
@@ -96,7 +102,7 @@ const DetailsWrapper = styled.div`
   }
 
   span {
-    text-decoration: underline;
+    font-weight: 600;
   }
 `;
 
