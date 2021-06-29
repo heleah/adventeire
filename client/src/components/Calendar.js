@@ -10,6 +10,8 @@ export default function Calendar({
   selectDate,
   onSetSelectDate,
   sight,
+  dateSightCombos,
+  setDateSightCombos,
 }) {
   const totalDaysOfEachMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const totalDaysOfEachMonthIfLeapYear = [
@@ -37,7 +39,6 @@ export default function Calendar({
   const [month, setMonth] = useState(date.getMonth());
   const [year, setYear] = useState(date.getFullYear());
   const [startDay, setStartDay] = useState(getStartDayOfMonth(date));
-  const [dateSightCombos, setDateSightCombos] = useState([]);
 
   useEffect(() => {
     setDay(date.getDate());
@@ -60,26 +61,8 @@ export default function Calendar({
     : totalDaysOfEachMonth;
 
   function handleModalOK() {
-    /*     if (dateSightCombos.some((combo) => combo.date === selectDate)) {
-      setDateSightCombos({
-        ...dateSightCombos,
-        date: [...dateSightCombos.date, sight.name],
-      });
-    } else { */
-    /*     setDateSightCombos([
-      ...dateSightCombos,
-      {
-        date: selectDate,
-        sight: sight.name,
-      },
-    ]); */
-    //}
-    let allCombos = dateSightCombos;
-    let newCombo = { date: selectDate, sight: sight.name };
-    allCombos.push(newCombo);
-    setDateSightCombos(...dateSightCombos, allCombos);
-
-    console.log(selectDate, sight.name, dateSightCombos);
+    const newCombo = { date: selectDate, sight: sight };
+    setDateSightCombos([...dateSightCombos, newCombo]);
     onSetShowCalendar(false);
   }
 
@@ -108,7 +91,13 @@ export default function Calendar({
               .fill(null)
               .map((_, index) => {
                 const d = index - (startDay - 2);
-                const formatted = `${d}/${month + 1}/${year}`;
+                const dFormatted =
+                  d.toString().length === 1 ? '0' + d.toString() : d;
+                const monthFormatted =
+                  (month + 1).toString().length === 1
+                    ? '0' + (month + 1).toString()
+                    : month + 1;
+                const formatted = `${dFormatted}/${monthFormatted}/${year}`;
                 return (
                   <Day
                     key={index}
@@ -142,6 +131,8 @@ Calendar.propTypes = {
   selectDate: PropTypes.string,
   onSetSelectDate: PropTypes.func,
   sight: PropTypes.object,
+  dateSightCombos: PropTypes.array,
+  setDateSightCombos: PropTypes.func,
 };
 
 const Modal = styled.div`

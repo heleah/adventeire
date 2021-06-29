@@ -17,7 +17,10 @@ function App() {
     loadFromLocal('Favourite Sights') ?? []
   );
   const [showCalendar, setShowCalendar] = useState(false);
-  const [selectDate, setSelectDate] = useState('');
+  const [selectDate, setSelectDate] = useState('28/6/2021');
+  const [dateSightCombos, setDateSightCombos] = useState(
+    loadFromLocal('Sights on Dates') ?? []
+  );
 
   useEffect(() => {
     fetch('/api/sights')
@@ -39,6 +42,10 @@ function App() {
   useEffect(() => {
     saveToLocal('Favourite Sights', faveSights);
   }, [faveSights]);
+
+  useEffect(() => {
+    saveToLocal('Sights on Dates', dateSightCombos);
+  }, [dateSightCombos]);
 
   function toggleFavorite(sightToToggle) {
     isFave(sightToToggle)
@@ -95,10 +102,15 @@ function App() {
               toggleCalendar={toggleCalendar}
               onSetSelectDate={setSelectDate}
               selectDate={selectDate}
+              dateSightCombos={dateSightCombos}
+              setDateSightCombos={setDateSightCombos}
             />
           </Route>
           <Route path='/itinerary'>
-            <Itinerary />
+            <Itinerary
+              dateSightCombos={dateSightCombos}
+              setDateSightCombos={setDateSightCombos}
+            />
           </Route>
         </Switch>
       </MainContainer>

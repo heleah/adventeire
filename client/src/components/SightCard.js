@@ -52,7 +52,11 @@ const CardWrapper = styled.section`
   }
 `;
 
-const InfoWrapper = styled.div``;
+const InfoWrapper = styled.div`
+  h4 {
+    font-weight: 400;
+  }
+`;
 
 const IconWrapper = styled.div`
   display: flex;
