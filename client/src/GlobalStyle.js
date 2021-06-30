@@ -22,7 +22,7 @@ export default createGlobalStyle`
         --grey-darkest: hsl(132, 10%, 10%);
 
         --grey-lightest-opa: hsla(132, 10%, 96%, 0.6);
-        --grey-lightest-dark-opa: hsla(132,10%,96%, 0.8);
+        --grey-opa: hsla(132,10%,40%, 0.6);
         --secondary-lightest-opa: hsla(27,87%,94%, 0.5);
     }
 

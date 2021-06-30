@@ -123,7 +123,7 @@ export default App;
 
 const MainContainer = styled.main`
   margin: 0 0.8rem;
-  height: calc(100vh - 7.44rem);
+  height: calc(100vh - 8rem);
   margin-bottom: 3.6rem;
   overflow-y: scroll;
 `;

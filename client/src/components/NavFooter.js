@@ -9,15 +9,18 @@ import { ReactComponent as ShamrockIcon } from '../images/clover.svg';
 export default function NavFooter({ isStatic }) {
   return (
     <NavWrapper isStatic={isStatic}>
-      <NavLink to='/sights'>
-        <CliffsIconStyled title='Sights' role='img' />
-      </NavLink>
-      <NavLink to='/favorites'>
-        <ShamrockIconStyled title='Favorites' role='img' />
-      </NavLink>
-      <NavLink to='/itinerary'>
-        <IrelandIconStyled title='Itinerary' role='img' />
-      </NavLink>
+      <NavLinkStyled to='/sights'>
+        <CliffsIcon title='Sights' role='img' />
+        <p>All Sights</p>
+      </NavLinkStyled>
+      <NavLinkStyled to='/favorites'>
+        <ShamrockIcon title='Favorites' role='img' />
+        <p>Favourites</p>
+      </NavLinkStyled>
+      <NavLinkStyled to='/itinerary'>
+        <IrelandIcon title='Itinerary' role='img' />
+        <p>Itinerary</p>
+      </NavLinkStyled>
     </NavWrapper>
   );
 }
@@ -34,40 +37,38 @@ const NavWrapper = styled.footer`
   left: ${(props) => (props.isStatic ? 'auto' : '50%')};
   margin-left: ${(props) => (props.isStatic ? 0 : 'calc((-94vw / 2))')};
   display: inline-flex;
+  box-shadow: 0 -0.4rem 0.8rem var(--grey-opa);
   justify-content: space-around;
   align-items: center;
   padding-top: 0.5rem;
   border-radius: 8px 8px 10px 10px;
-`;
 
-const CliffsIconStyled = styled(CliffsIcon)`
-  height: 2.8rem;
-  width: 2.8rem;
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 
-  .active & circle,
-  .active & path {
-    fill: var(--primary-dark);
-    stroke: var(--primary-dark);
+  .active,
+  .active * {
+    color: var(--primary-dark);
+    svg {
+      path,
+      circle {
+        fill: var(--primary-dark);
+        stroke: var(--primary-dark);
+      }
+    }
   }
 `;
 
-const ShamrockIconStyled = styled(ShamrockIcon)`
-  height: 2.8rem;
-  width: 2.8rem;
+const NavLinkStyled = styled(NavLink)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
 
-  .active & path {
-    fill: var(--primary-dark);
-    stroke: var(--primary-dark);
-  }
-`;
-
-const IrelandIconStyled = styled(IrelandIcon)`
-  height: 2.8rem;
-  width: 2.8rem;
-
-  .active & circle,
-  .active & path {
-    fill: var(--primary-dark);
-    stroke: var(--primary-dark);
+  p {
+    font-size: 1rem;
+    color: var(--grey-darkest);
   }
 `;
