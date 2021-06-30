@@ -8,10 +8,10 @@ import infoButton from '../images/info.svg';
 
 export default function SightCard({ sight, toggleFavorite, isFave }) {
   return (
-    <CardWrapper>
+    <CardWrapper data-test-id='favorite-sight'>
       <img src={sight.imgUrl} alt={sight.name} />
       <InfoWrapper>
-        <h4>{sight.name}</h4>
+        <h4 data-test-id='search-result'>{sight.name}</h4>
         <p>Co. {sight.county}</p>
       </InfoWrapper>
       <IconWrapper>
@@ -19,6 +19,7 @@ export default function SightCard({ sight, toggleFavorite, isFave }) {
           src={isFave(sight) ? shamrockGreen : shamrock}
           alt='Fave Icon'
           onClick={() => toggleFavorite(sight)}
+          data-test-id='shamrock'
         />
         <Link to={`/sights/${sight._id}`}>
           <InfoButton src={infoButton} alt='Info Icon' />

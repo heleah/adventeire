@@ -66,6 +66,7 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
             placeholder='Search Sight...'
             value={searchValue}
             onChange={(event) => setSearchValue(event.target.value)}
+            data-test-id='search-bar'
           />
           <SearchIcon src={searchGlass} alt='Search Sight' />
         </SightSearchWrapper>
