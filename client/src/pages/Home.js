@@ -68,6 +68,7 @@ export const Button = styled.button`
   color: var(--grey-lightest);
   box-shadow: 0 0 0.4rem var(--grey-darkest);
   font-size: 1rem;
+  cursor: pointer;
 
   img {
     height: 2rem;
