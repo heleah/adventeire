@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 import { MdNavigateBefore } from 'react-icons/md';
 import { MdNavigateNext } from 'react-icons/md';
@@ -63,6 +64,15 @@ export default function Calendar({
   function handleModalOK() {
     const newCombo = { date: selectDate, sight: sight };
     setDateSightCombos([...dateSightCombos, newCombo]);
+    toast.success('Sight added to itinerary 🧭', {
+      position: 'bottom-center',
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
     onSetShowCalendar(false);
   }
 

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { saveToLocal, loadFromLocal } from './lib/localStorage';
 import Header from './components/Header';
@@ -113,6 +115,7 @@ function App() {
             />
           </Route>
         </Switch>
+        <ToastContainerStyled />
       </MainContainer>
       <NavFooter />
     </div>
@@ -126,4 +129,12 @@ const MainContainer = styled.main`
   height: calc(100vh - 8rem);
   margin-bottom: 3.6rem;
   overflow-y: scroll;
+`;
+
+const ToastContainerStyled = styled(ToastContainer)`
+  text-align: center;
+
+  .Toastify__toast--success {
+    background-color: var(--primary);
+  }
 `;
