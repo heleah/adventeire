@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import backgroundImg from './images/mainbg.jpg';
+import backgroundImgH from './images/mainbg_h.jpg';
 
 export default createGlobalStyle`
     :root {
@@ -14,6 +15,8 @@ export default createGlobalStyle`
         --secondary-light: hsl(27,87%,70%);
         --secondary-dark: hsl(27,96%,30%);
         --secondary-darkest: hsl(27,96%,10%);
+
+        --tertiary: hotpink;
 
         --grey: hsl(132, 10%, 40%);
         --grey-lightest: hsl(132, 10%, 96%);
@@ -41,6 +44,8 @@ export default createGlobalStyle`
     }
 
     body {
+        max-width: 30rem;
+        margin: 0 auto;
         line-height: 1.5;
         font-size: 1.1rem;
         font-family: 'Montserrat', sans-serif;
@@ -48,6 +53,11 @@ export default createGlobalStyle`
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+
+        @media (min-width: 768px) {
+            background: url(${backgroundImgH});
+            background-position: left;
+        }
     }
 
     body * {

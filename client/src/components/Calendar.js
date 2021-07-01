@@ -74,9 +74,9 @@ export default function Calendar({
             <Button onClick={() => setDate(new Date(year, month - 1, day))}>
               <MdNavigateBefore className='icon' />
             </Button>
-            <div>
+            <MonthYear>
               {months[month]} {year}
-            </div>
+            </MonthYear>
             <Button onClick={() => setDate(new Date(year, month + 1, day))}>
               <MdNavigateNext className='icon' />
             </Button>
@@ -166,7 +166,7 @@ const CalendarView = styled.section`
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+  padding: 0.5rem;
   background-color: var(--primary-dark);
   color: var(--grey-lightest);
   font-weight: bold;
@@ -180,6 +180,11 @@ const Button = styled.button`
   .icon {
     font-size: 2rem;
   }
+`;
+
+const MonthYear = styled.div`
+  display: inline-flex;
+  align-items: center;
 `;
 
 const Body = styled.article`

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 export default function Header() {
   return (
-    <Link exact to='/'>
+    <Link to='/' exact='true'>
       <Image src={logo} alt='Logo' />
     </Link>
   );

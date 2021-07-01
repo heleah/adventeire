@@ -30,6 +30,10 @@ const HomeWrapper = styled.div`
   height: 80vh;
   border-radius: 20px;
   background-color: var(--grey-lightest-opa);
+
+  @media (min-width: 768px) {
+    padding-top: 10%;
+  }
 `;
 
 const Intro = styled.p`

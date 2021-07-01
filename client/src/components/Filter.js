@@ -34,4 +34,5 @@ Filter.propTypes = {
 const MultiSelectStyled = styled(MultiSelect)`
   margin: 0.5rem auto;
   width: 90vw;
+  max-width: 28rem;
 `;
