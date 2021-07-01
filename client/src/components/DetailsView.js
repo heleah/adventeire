@@ -22,7 +22,6 @@ export default function DetailsView({
   const [detailedSight, setDetailedSight] = useState(details ? details : {});
 
   let { sightId } = useParams();
-  console.log(sightId);
   let history = useHistory();
   const goToPreviousPath = () => {
     history.goBack();

@@ -68,6 +68,7 @@ const IconWrapper = styled.div`
 const FaveShamrock = styled.img`
   height: 2.6rem;
   transition: all 0.4s ease-in-out;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.1);
