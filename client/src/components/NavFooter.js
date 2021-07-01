@@ -30,13 +30,13 @@ NavFooter.propTypes = {
 };
 
 const NavWrapper = styled.footer`
-  width: 92vw;
+  width: ${(props) => (props.isStatic ? '25rem' : '92vw')};
   background-color: var(--grey-lightest-opa);
   position: ${(props) => (props.isStatic ? 'static' : 'fixed')};
-  bottom: ${(props) => (props.isStatic ? 'auto' : 0)};
+  bottom: 0;
   left: ${(props) => (props.isStatic ? 'auto' : '50%')};
-  margin: 0 auto;
-  margin-left: ${(props) => (props.isStatic ? 0 : 'calc((-92vw / 2))')};
+  margin: ${(props) => (props.isStatic ? 'auto' : '0 auto')};
+  margin-left: ${(props) => (props.isStatic ? '' : 'calc((-92vw / 2))')};
   display: inline-flex;
   box-shadow: 0 -0.4rem 0.8rem var(--grey-opa);
   justify-content: space-around;
@@ -68,7 +68,7 @@ const NavWrapper = styled.footer`
 
   @media (min-width: 500px) {
     width: 30rem;
-    margin-left: -15rem;
+    margin-left: ${(props) => (props.isStatic ? 'auto' : '-15rem')};
   }
 `;
 

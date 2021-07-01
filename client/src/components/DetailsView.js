@@ -17,19 +17,23 @@ export default function DetailsView({
   selectDate,
   dateSightCombos,
   setDateSightCombos,
+  details,
 }) {
-  const [detailedSight, setDetailedSight] = useState({});
+  const [detailedSight, setDetailedSight] = useState(details ? details : {});
 
   let { sightId } = useParams();
+  console.log(sightId);
   let history = useHistory();
   const goToPreviousPath = () => {
     history.goBack();
   };
 
   useEffect(() => {
-    fetch('/api/sights/' + sightId)
-      .then((result) => result.json())
-      .then((data) => setDetailedSight(data));
+    if (sightId) {
+      fetch('/api/sights/' + sightId)
+        .then((result) => result.json())
+        .then((data) => setDetailedSight(data));
+    }
   }, [sightId]);
 
   return (
@@ -79,6 +83,8 @@ DetailsView.propTypes = {
   onSetSelectDate: PropTypes.func,
   dateSightCombos: PropTypes.array,
   setDateSightCombos: PropTypes.func,
+  /** the details prop is only used for test and documentation purposes */
+  details: PropTypes.object,
 };
 
 const DetailsWrapper = styled.div`
