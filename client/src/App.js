@@ -97,7 +97,7 @@ function App() {
               isFave={isFave}
             />
           </Route>
-          <Route path={'/sights/:sightId'}>
+          <Route path='/sights/:sightId'>
             <DetailsView
               showCalendar={showCalendar}
               onSetShowCalendar={setShowCalendar}
