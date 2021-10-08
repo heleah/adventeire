@@ -79,5 +79,17 @@ const ShamrockImg = styled.img`
   margin: 3rem auto;
   height: 6rem;
   filter: drop-shadow(0 0 0.2rem black);
-  transition: transform 1s ease-in-out;
+  animation: rotateShamrock360 4000ms linear infinite alternate;
+
+  @keyframes rotateShamrock360 {
+    0% {
+      transform: rotate(0turn);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+      transform: rotate(1turn);
+    }
+  }
 `;
