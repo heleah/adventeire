@@ -147,6 +147,7 @@ Calendar.propTypes = {
 
 const Modal = styled.div`
   position: relative;
+
   .modal_open {
     z-index: 999;
     display: flex;
@@ -157,6 +158,7 @@ const Modal = styled.div`
     max-width: 26rem;
     border-radius: 0.5rem;
     background-color: var(--grey-lightest);
+    animation: slideIn 500ms;
   }
   .modal_open--overlay {
     z-index: 99;
@@ -166,6 +168,17 @@ const Modal = styled.div`
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
 `;
 
