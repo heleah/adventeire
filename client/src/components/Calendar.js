@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components/macro';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 
@@ -145,6 +145,17 @@ Calendar.propTypes = {
   setDateSightCombos: PropTypes.func,
 };
 
+const slideIn = keyframes`
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+`;
+
 const Modal = styled.div`
   position: relative;
 
@@ -158,7 +169,7 @@ const Modal = styled.div`
     max-width: 26rem;
     border-radius: 0.5rem;
     background-color: var(--grey-lightest);
-    animation: slideIn 500ms;
+    animation: ${slideIn} 500ms;
   }
   .modal_open--overlay {
     z-index: 99;
@@ -168,17 +179,6 @@ const Modal = styled.div`
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  @keyframes slideIn {
-    from {
-      transform: scale(0);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
   }
 `;
 

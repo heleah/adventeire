@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components/macro';
 
 import shamrock from '../images/shamrock.svg';
 import cliffsWhite from '../images/cliff_white.svg';
@@ -75,21 +75,34 @@ export const Button = styled.button`
   }
 `;
 
+const rotateShamrock360 = keyframes`
+  0% {
+    transform: rotate(0turn);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+`;
+
+const shootIn = keyframes`
+  0% {
+    transform: translateX(-100vw);
+  }
+  50% {
+    transform: translateX(4rem) scale(1.2) rotate(30deg);
+  }
+  100% {
+    transform: translateX(1);
+  }
+`;
+
 const ShamrockImg = styled.img`
   margin: 3rem auto;
   height: 6rem;
   filter: drop-shadow(0 0 0.2rem black);
-  animation: rotateShamrock360 4000ms linear infinite alternate;
-
-  @keyframes rotateShamrock360 {
-    0% {
-      transform: rotate(0turn);
-    }
-    50% {
-      transform: rotate(180deg) scale(1.2);
-    }
-    100% {
-      transform: rotate(1turn);
-    }
-  }
+  //animation: ${rotateShamrock360} 4000ms linear infinite alternate;
+  animation: ${shootIn} 2600ms ease-out;
 `;
