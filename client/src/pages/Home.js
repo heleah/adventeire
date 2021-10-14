@@ -103,6 +103,7 @@ const ShamrockImg = styled.img`
   margin: 3rem auto;
   height: 6rem;
   filter: drop-shadow(0 0 0.2rem black);
-  //animation: ${rotateShamrock360} 4000ms linear infinite alternate;
   animation: ${shootIn} 2600ms ease-out;
+  animation-delay: 500ms;
+  animation-fill-mode: backwards;
 `;
