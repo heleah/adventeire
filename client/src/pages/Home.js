@@ -75,18 +75,6 @@ export const Button = styled.button`
   }
 `;
 
-const rotateShamrock360 = keyframes`
-  0% {
-    transform: rotate(0turn);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.2);
-  }
-  100% {
-    transform: rotate(1turn);
-  }
-`;
-
 const shootIn = keyframes`
   0% {
     transform: translateX(-100vw);
