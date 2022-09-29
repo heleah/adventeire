@@ -5,7 +5,7 @@ import styled from 'styled-components/macro';
 import Filter from '../components/Filter';
 import SightCard from '../components/SightCard';
 
-import searchGlass from '../images/search.svg';
+import searchGlass from '../assets/icons/search.svg';
 
 export default function Sights({ sights, toggleFavorite, isFave }) {
   const [selected, setSelected] = useState([]);

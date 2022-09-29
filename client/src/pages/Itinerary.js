@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 import { Headline } from './Sights';
 
-import deleteIcon from '../images/delete.svg';
-import infoIcon from '../images/info.svg';
+import deleteIcon from '../assets/icons/delete.svg';
+import infoIcon from '../assets/icons/info.svg';
 
 export default function Itinerary({ dateSightCombos, setDateSightCombos }) {
   const [dates, setDates] = useState([]);

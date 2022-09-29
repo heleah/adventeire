@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import shamrock from '../images/clover.svg';
-import shamrockGreen from '../images/clover_col.svg';
-import infoButton from '../images/info.svg';
+import shamrock from '../assets/icons/clover.svg';
+import shamrockGreen from '../assets/icons/clover_col.svg';
+import infoButton from '../assets/icons/info.svg';
 
 export default function SightCard({ sight, toggleFavorite, isFave }) {
   return (

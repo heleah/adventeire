@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components/macro';
 
-import shamrock from '../images/shamrock.svg';
-import cliffsWhite from '../images/cliff_white.svg';
+import shamrock from '../assets/icons/shamrock.svg';
+import cliffsWhite from '../assets/icons/cliff_white.svg';
 
 export default function Home() {
   return (
