@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import styled from 'styled-components/macro';
-import { Headline } from './Sights';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import styled from "styled-components/macro";
 
-import deleteIcon from '../assets/icons/delete.svg';
-import infoIcon from '../assets/icons/info.svg';
+import Headline from "../components/Headline";
+
+import deleteIcon from "../assets/icons/delete.svg";
+import infoIcon from "../assets/icons/info.svg";
 
 export default function Itinerary({ dateSightCombos, setDateSightCombos }) {
   const [dates, setDates] = useState([]);
@@ -20,8 +21,8 @@ export default function Itinerary({ dateSightCombos, setDateSightCombos }) {
           map[JSON.stringify(date)] = true;
           uniqueDates.push(date);
           uniqueDates.sort((a, b) => {
-            a = a.split('/');
-            b = b.split('/');
+            a = a.split("/");
+            b = b.split("/");
             return a[2] - b[2] || a[1] - b[1] || a[0] - b[0];
           });
         }
@@ -45,7 +46,7 @@ export default function Itinerary({ dateSightCombos, setDateSightCombos }) {
       <Headline>My Itinerary</Headline>
       <ItineraryWrapper>
         {dateSightCombos.length === 0 ? (
-          <h4 style={{ textAlign: 'center' }}>No sights added yet ☘️</h4>
+          <h4 style={{ textAlign: "center" }}>No sights added yet ☘️</h4>
         ) : (
           dates.map((date) => {
             return (
@@ -54,15 +55,15 @@ export default function Itinerary({ dateSightCombos, setDateSightCombos }) {
                 {dateSightCombos
                   .filter((combo) => combo.date === date)
                   .map((combo) => (
-                    <Sight key={combo.date + '+' + combo.sight._id}>
+                    <Sight key={combo.date + "+" + combo.sight._id}>
                       <p>{combo.sight.name}</p>
                       <IconWrapper>
                         <Link to={`/sights/${combo.sight._id}`}>
-                          <img src={infoIcon} alt='See details' />
+                          <img src={infoIcon} alt="See details" />
                         </Link>
                         <img
                           src={deleteIcon}
-                          alt='Delete from itinerary'
+                          alt="Delete from itinerary"
                           onClick={() => removeFromItinerary(combo)}
                         />
                       </IconWrapper>

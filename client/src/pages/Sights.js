@@ -1,17 +1,18 @@
-import { useState, useEffect } from 'react';
-import PropTypes, { object } from 'prop-types';
-import styled from 'styled-components/macro';
+import { useState, useEffect } from "react";
+import PropTypes, { object } from "prop-types";
+import styled from "styled-components/macro";
 
-import Filter from '../components/Filter';
-import SightCard from '../components/SightCard';
+import Filter from "../components/Filter";
+import Headline from "../components/Headline";
+import SightCard from "../components/SightCard";
 
-import searchGlass from '../assets/icons/search.svg';
+import searchGlass from "../assets/icons/search.svg";
 
 export default function Sights({ sights, toggleFavorite, isFave }) {
   const [selected, setSelected] = useState([]);
   const [selectedSights, setSelectedSights] = useState(sights);
   const [counties, setCounties] = useState([]);
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     setSelected(counties);
@@ -62,13 +63,13 @@ export default function Sights({ sights, toggleFavorite, isFave }) {
         Sights
         <SightSearchWrapper>
           <SightSearchBar
-            type='text'
-            placeholder='Search Sight...'
+            type="text"
+            placeholder="Search Sight..."
             value={searchValue}
             onChange={(event) => setSearchValue(event.target.value)}
-            data-test-id='search-bar'
+            data-test-id="search-bar"
           />
-          <SearchIcon src={searchGlass} alt='Search Sight' />
+          <SearchIcon src={searchGlass} alt="Search Sight" />
         </SightSearchWrapper>
       </Headline>
       <Filter
@@ -97,12 +98,6 @@ Sights.propTypes = {
   toggleFavorite: PropTypes.func,
   isFave: PropTypes.func,
 };
-
-export const Headline = styled.h2`
-  padding: 0.8rem 1rem;
-  border-radius: 20px;
-  background-color: var(--grey-lightest-opa);
-`;
 
 const SightSearchWrapper = styled.div`
   display: inline-flex;
