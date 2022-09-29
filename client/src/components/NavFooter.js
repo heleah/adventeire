@@ -2,9 +2,9 @@ import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-import { ReactComponent as IrelandIcon } from '../images/ireland.svg';
-import { ReactComponent as CliffsIcon } from '../images/cliff.svg';
-import { ReactComponent as ShamrockIcon } from '../images/clover.svg';
+import { ReactComponent as IrelandIcon } from '../assets/icons/ireland.svg';
+import { ReactComponent as CliffsIcon } from '../assets/icons/cliff.svg';
+import { ReactComponent as ShamrockIcon } from '../assets/icons/clover.svg';
 
 export default function NavFooter({ isStatic }) {
   return (

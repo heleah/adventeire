@@ -5,9 +5,9 @@ import styled from 'styled-components';
 
 import Calendar from '../components/Calendar';
 import { Button } from '../pages/Home';
-import backButton from '../images/left_white.svg';
-import addButton from '../images/plus.svg';
-import wwwglobe from '../images/www.svg';
+import backButton from '../assets/icons/left_white.svg';
+import addButton from '../assets/icons/plus.svg';
+import wwwglobe from '../assets/icons/www.svg';
 
 export default function DetailsView({
   showCalendar,
