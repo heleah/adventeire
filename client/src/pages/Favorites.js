@@ -1,15 +1,15 @@
-import PropTypes, { object } from 'prop-types';
-import styled from 'styled-components';
+import PropTypes, { object } from "prop-types";
+import styled from "styled-components";
 
-import SightCard from '../components/SightCard';
-import { Headline } from './Sights';
+import Headline from "../components/Headline";
+import SightCard from "../components/SightCard";
 
 export default function Favorites({ faveSights, toggleFavorite, isFave }) {
   return (
     <>
       <Headline>Favourites</Headline>
       {faveSights.length === 0 ? (
-        <ConditionalH4 style={{ textAlign: 'center' }}>
+        <ConditionalH4 style={{ textAlign: "center" }}>
           No favourites added yet ☘️
         </ConditionalH4>
       ) : (
