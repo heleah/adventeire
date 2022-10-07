@@ -8,7 +8,7 @@ _Capstone Project for neuefische Web Dev Bootcamp_
 
 adventéire - a combination of 'adventure' and 'éire' (Gaelic for 'Ireland'). Browse through all the grand sights on the Emerald Isle, filter by county/ies or name, view details like description and address, and save them to your personal travel itinerary. Sit back and relax while planning your next Ireland trip!
 
-![app screenshots](./client/src/images/adventeire_github.png)
+![app screenshots](./client/src/assets/images/adventeire_github.png)
 
 ### Demo
 
