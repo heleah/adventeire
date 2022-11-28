@@ -1,6 +1,29 @@
-import { createGlobalStyle } from 'styled-components';
-import backgroundImg from './assets/images/mainbg.jpg';
-import backgroundImgH from './assets/images/mainbg_h.jpg';
+import { createGlobalStyle } from "styled-components";
+import backgroundImg from "./assets/images/mainbg.jpg";
+import backgroundImgH from "./assets/images/mainbg_h.jpg";
+
+import MontserratW2 from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-regular.woff2";
+import MontserratW from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-regular.woff";
+import MontserratTTF from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-regular.ttf";
+import MontserratSVG from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-regular.svg#Montserrat";
+
+import Montserrat600EOT from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-600.eot?#iefix";
+import Montserrat600W2 from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-600.woff2";
+import Montserrat600W from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-600.woff";
+import Montserrat600TTF from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-600.ttf";
+import Montserrat600SVG from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-600.svg#Montserrat";
+
+import Montserrat800EOT from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-800.eot?#iefix";
+import Montserrat800W2 from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-800.woff2";
+import Montserrat800W from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-800.woff";
+import Montserrat800TTF from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-800.ttf";
+import Montserrat800SVG from "./assets/fonts/montserrat-v25-latin/montserrat-v25-latin-800.svg#Montserrat";
+
+import UncialAntiquaEOT from "./assets/fonts/uncial-antiqua-v20-latin/uncial-antiqua-v20-latin-regular.eot?#iefix";
+import UncialAntiquaW2 from "./assets/fonts/uncial-antiqua-v20-latin/uncial-antiqua-v20-latin-regular.woff2";
+import UncialAntiquaW from "./assets/fonts/uncial-antiqua-v20-latin/uncial-antiqua-v20-latin-regular.woff";
+import UncialAntiquaTTF from "./assets/fonts/uncial-antiqua-v20-latin/uncial-antiqua-v20-latin-regular.ttf";
+import UncialAntiquaSVG from "./assets/fonts/uncial-antiqua-v20-latin/uncial-antiqua-v20-latin-regular.svg#UncialAntiqua";
 
 export default createGlobalStyle`
     :root {
@@ -27,6 +50,56 @@ export default createGlobalStyle`
         --grey-lightest-opa: hsla(132, 10%, 96%, 0.6);
         --grey-opa: hsla(132,10%,40%, 0.6);
         --secondary-lightest-opa: hsla(27,87%,94%, 0.5);
+    }
+
+    /* montserrat-regular - latin */
+    @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+        url() format('embedded-opentype'), /* IE6-IE8 */
+        url(${MontserratW2}) format('woff2'), /* Super Modern Browsers */
+        url(${MontserratW}) format('woff'), /* Modern Browsers */
+        url(${MontserratTTF}) format('truetype'), /* Safari, Android, iOS */
+        url(${MontserratSVG}) format('svg'); /* Legacy iOS */
+    }
+    /* montserrat-600 - latin */
+    @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    src: local(''),
+        url(${Montserrat600EOT}) format('embedded-opentype'), /* IE6-IE8 */
+        url(${Montserrat600W2}) format('woff2'), /* Super Modern Browsers */
+        url(${Montserrat600W}) format('woff'), /* Modern Browsers */
+        url(${Montserrat600TTF}) format('truetype'), /* Safari, Android, iOS */
+        url(${Montserrat600SVG}) format('svg'); /* Legacy iOS */
+    }
+    /* montserrat-800 - latin */
+    @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    src: local(''),
+    url(${Montserrat800EOT}) format('embedded-opentype'), /* IE8-IE8 */
+    url(${Montserrat800W2}) format('woff2'), /* Super Modern Browsers */
+    url(${Montserrat800W}) format('woff'), /* Modern Browsers */
+    url(${Montserrat800TTF}) format('truetype'), /* Safari, Android, iOS */
+    url(${Montserrat800SVG}) format('svg'); /* Legacy iOS */
+    }
+
+    /* uncial-antiqua-regular - latin */
+    @font-face {
+    font-family: 'Uncial Antiqua';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+        url(${UncialAntiquaEOT}) format('embedded-opentype'), /* IE6-IE8 */
+        url(${UncialAntiquaW2}) format('woff2'), /* Super Modern Browsers */
+        url(${UncialAntiquaW}) format('woff'), /* Modern Browsers */
+        url(${UncialAntiquaTTF}) format('truetype'), /* Safari, Android, iOS */
+        url(${UncialAntiquaSVG}) format('svg'); /* Legacy iOS */
     }
 
     *,
