@@ -9,15 +9,16 @@ mapboxgl.accessToken =
 export default function Map() {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(-8.24389);
-  const [lat, setLat] = useState(53.41291);
+  const [lng, setLng] = useState(-8.2439);
+  const [lat, setLat] = useState(53.4129);
   const [zoom, setZoom] = useState(5.5);
   const nav = new mapboxgl.NavigationControl();
 
   useEffect(() => {
     map.current = getMap();
     map.current.addControl(nav);
-    return () => map.remove();
+    return () => map.current.remove();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
