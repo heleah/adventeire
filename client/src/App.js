@@ -1,31 +1,32 @@
-import { useEffect, useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import styled from 'styled-components';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useState } from "react";
+import { Switch, Route } from "react-router-dom";
+import styled from "styled-components";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import { saveToLocal, loadFromLocal } from './lib/localStorage';
-import Header from './components/Header';
-import NavFooter from './components/NavFooter';
-import Home from './pages/Home';
-import Sights from './pages/Sights';
-import Favorites from './pages/Favorites';
-import DetailsView from './components/DetailsView';
-import Itinerary from './pages/Itinerary';
+import { saveToLocal, loadFromLocal } from "./lib/localStorage";
+import Header from "./components/Header";
+import NavFooter from "./components/NavFooter";
+import Home from "./pages/Home";
+import Sights from "./pages/Sights";
+import Favorites from "./pages/Favorites";
+import DetailsView from "./components/DetailsView";
+import Itinerary from "./pages/Itinerary";
+import Map from "./components/Map";
 
 function App() {
   const [allSights, setAllSights] = useState([]);
   const [faveSights, setFaveSights] = useState(
-    loadFromLocal('Favourite Sights') ?? []
+    loadFromLocal("Favourite Sights") ?? []
   );
   const [showCalendar, setShowCalendar] = useState(false);
-  const [selectDate, setSelectDate] = useState('28/6/2021');
+  const [selectDate, setSelectDate] = useState("28/6/2021");
   const [dateSightCombos, setDateSightCombos] = useState(
-    loadFromLocal('Sights on Dates') ?? []
+    loadFromLocal("Sights on Dates") ?? []
   );
 
   useEffect(() => {
-    fetch('/api/sights')
+    fetch("/api/sights")
       .then((res) => res.json())
       .then((sights) => {
         const sightsAlphabetically = sights.sort((a, b) => {
@@ -38,15 +39,15 @@ function App() {
   }, []);
 
   useEffect(() => {
-    saveToLocal('All Sights', allSights);
+    saveToLocal("All Sights", allSights);
   }, [allSights]);
 
   useEffect(() => {
-    saveToLocal('Favourite Sights', faveSights);
+    saveToLocal("Favourite Sights", faveSights);
   }, [faveSights]);
 
   useEffect(() => {
-    saveToLocal('Sights on Dates', dateSightCombos);
+    saveToLocal("Sights on Dates", dateSightCombos);
   }, [dateSightCombos]);
 
   function toggleFavorite(sightToToggle) {
@@ -76,28 +77,28 @@ function App() {
   }
 
   return (
-    <div className='App'>
+    <div className="App">
       <Header />
       <MainContainer>
         <Switch>
-          <Route exact path='/'>
+          <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path='/sights'>
+          <Route exact path="/sights">
             <Sights
               sights={allSights}
               toggleFavorite={toggleFavorite}
               isFave={isFave}
             />
           </Route>
-          <Route path='/favorites'>
+          <Route path="/favorites">
             <Favorites
               faveSights={faveSights}
               toggleFavorite={toggleFavorite}
               isFave={isFave}
             />
           </Route>
-          <Route path='/sights/:sightId'>
+          <Route path="/sights/:sightId">
             <DetailsView
               showCalendar={showCalendar}
               onSetShowCalendar={setShowCalendar}
@@ -108,11 +109,14 @@ function App() {
               setDateSightCombos={setDateSightCombos}
             />
           </Route>
-          <Route path='/itinerary'>
+          <Route path="/itinerary">
             <Itinerary
               dateSightCombos={dateSightCombos}
               setDateSightCombos={setDateSightCombos}
             />
+          </Route>
+          <Route path="/map">
+            <Map />
           </Route>
         </Switch>
         <ToastContainerStyled />
