@@ -116,7 +116,7 @@ function App() {
             />
           </Route>
           <Route path="/map">
-            <Map />
+            <Map sights={faveSights} />
           </Route>
         </Switch>
         <ToastContainerStyled />
