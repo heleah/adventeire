@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const sightSchema = new mongoose.Schema({
   name: String,
@@ -8,9 +8,10 @@ const sightSchema = new mongoose.Schema({
   ticket: String,
   website: String,
   imgUrl: String,
+  coordinates: Object,
 });
 
-const Sight = mongoose.model('sight', sightSchema);
+const Sight = mongoose.model("sight", sightSchema);
 
 export default Sight;
 

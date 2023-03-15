@@ -17,7 +17,7 @@ export default function Map({ sights }) {
   useEffect(() => {
     map.current = getMap();
     map.current.addControl(nav);
-    addMarker(sights); // TODO
+    addMarker(sights);
     return () => map.current.remove();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -40,29 +40,13 @@ export default function Map({ sights }) {
     });
   }
 
-  // TO CHANGE SO ONLY 2 REQUESTS ARE MADE EVERY SECOND
   function addMarker(arr) {
     arr.forEach((el) => {
-      const options = {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key":
-            "46ed6e9bdbmsh29820b8473a597dp110c6bjsn0a7166dcb6a0",
-          "X-RapidAPI-Host": "trueway-geocoding.p.rapidapi.com",
-        },
-      };
-
-      fetch(
-        `https://trueway-geocoding.p.rapidapi.com/Geocode?address=${el.name}&language=en`,
-        options
-      )
-        .then((response) => response.json())
-        .then((res) => {
-          console.log(res);
-          const { lat, lng } = res.results[0].location;
-          return new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map.current);
-        })
-        .catch((err) => console.error(err));
+      console.log(el); // remove later
+      const { longitude, latitude } = el.coordinates;
+      return new mapboxgl.Marker()
+        .setLngLat([longitude, latitude])
+        .addTo(map.current);
     });
   }
 
