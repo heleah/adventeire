@@ -60,6 +60,12 @@ function App() {
     return faveSights.find((sight) => sight._id === sightInQuestion._id);
   }
 
+  function isOnItinerary(sightInQuestion) {
+    return dateSightCombos.find(
+      (combo) => combo.sight._id === sightInQuestion._id
+    );
+  }
+
   function removeFromFaves(sightToRemove) {
     const sightsToKeep = faveSights.filter(
       (sight) => sight._id !== sightToRemove._id
@@ -116,7 +122,11 @@ function App() {
             />
           </Route>
           <Route path="/map">
-            <Map sights={faveSights} />
+            <Map
+              sights={allSights}
+              isFave={isFave}
+              isOnItinerary={isOnItinerary}
+            />
           </Route>
         </Switch>
         <ToastContainerStyled />
