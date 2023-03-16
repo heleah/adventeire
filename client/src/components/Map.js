@@ -44,8 +44,13 @@ export default function Map({ sights, isFave, isOnItinerary }) {
   function addMarker(arr) {
     arr.forEach((el) => {
       const { longitude, latitude } = el.coordinates;
+      const popup = new mapboxgl.Popup({
+        offset: 25,
+        className: "bold",
+      }).setText(el.name);
       return new mapboxgl.Marker({ color: determineMarkerColor(el) })
         .setLngLat([longitude, latitude])
+        .setPopup(popup)
         .addTo(map.current);
     });
   }
@@ -90,4 +95,8 @@ const Legend = styled.div`
 
 const MapContainer = styled.div`
   height: 500px;
+
+  .bold {
+    font-weight: 600;
+  }
 `;
