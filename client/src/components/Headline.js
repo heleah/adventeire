@@ -6,7 +6,7 @@ export default function Headline({ children }) {
 }
 
 Headline.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 };
 
 const H2Styled = styled.h2`

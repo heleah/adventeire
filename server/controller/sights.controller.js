@@ -1,12 +1,12 @@
-import mongoose from 'mongoose';
-import sight from '../models/sights.model.js';
+import mongoose from "mongoose";
+import sight from "../models/sights.model.js";
 
 function getSights(req, res) {
   sight
     .find()
     .then((sights) => res.json(sights))
     .catch((error) =>
-      res.json({ success: false, message: 'Could not retrieve sights' })
+      res.json({ success: false, message: "Could not retrieve sights" })
     );
 }
 
@@ -16,7 +16,7 @@ function getSight(req, res) {
     .findById(sightId)
     .then((sight) => res.json(sight))
     .catch((error) =>
-      res.json({ success: false, message: '400: sight not found' })
+      res.json({ success: false, message: "400: sight not found" })
     );
 }
 
@@ -29,12 +29,13 @@ function postSight(req, res) {
     ticket: req.body.ticket,
     website: req.body.website,
     imgUrl: req.body.imgUrl,
+    coordinates: req.body.coordinates,
   });
   newSight
     .save()
     .then((savedSight) => res.json(savedSight))
     .catch((error) =>
-      res.json({ success: false, message: 'Could not save sight to database' })
+      res.json({ success: false, message: "Could not save sight to database" })
     );
 }
 
@@ -43,7 +44,7 @@ function updateSight(req, res) {
   const updatedSight = req.body;
   sight.findByIdAndUpdate({ _id: sightId }, updatedSight, (error, doc) => {
     if (error) {
-      res.json({ success: false, message: 'Could not update this sight.' });
+      res.json({ success: false, message: "Could not update this sight." });
       return;
     }
     res.json(doc);
@@ -54,7 +55,7 @@ function deleteSight(req, res) {
   const { sightId } = req.params;
   sight.findByIdAndDelete({ _id: sightId }, (error, doc) => {
     if (error) {
-      res.json({ success: false, message: 'Could not delete this sight.' });
+      res.json({ success: false, message: "Could not delete this sight." });
       return;
     }
     res.json({

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import PropTypes, { object } from 'prop-types';
+import styled from "styled-components";
+import PropTypes, { object } from "prop-types";
 
-import MultiSelect from 'react-multi-select-component';
+import { MultiSelect } from "react-multi-select-component";
 
 export default function Filter({
   selected,
@@ -10,7 +10,7 @@ export default function Filter({
   setSearchValue,
 }) {
   function handleFilterChange(e) {
-    setSearchValue('');
+    setSearchValue("");
     setSelected(e);
   }
 
@@ -19,7 +19,7 @@ export default function Filter({
       options={counties}
       value={selected}
       onChange={handleFilterChange}
-      labelledBy='Select'
+      labelledBy="Select"
     />
   );
 }

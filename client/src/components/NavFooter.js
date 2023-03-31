@@ -1,25 +1,30 @@
-import styled from 'styled-components/macro';
-import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import styled from "styled-components/macro";
+import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 
-import { ReactComponent as IrelandIcon } from '../assets/icons/ireland.svg';
-import { ReactComponent as CliffsIcon } from '../assets/icons/cliff.svg';
-import { ReactComponent as ShamrockIcon } from '../assets/icons/clover.svg';
+import { ReactComponent as IrelandIcon } from "../assets/icons/ireland.svg";
+import { ReactComponent as CliffsIcon } from "../assets/icons/cliff.svg";
+import { ReactComponent as CalendarIcon } from "../assets/icons/calendar.svg";
+import { ReactComponent as ShamrockIcon } from "../assets/icons/clover.svg";
 
 export default function NavFooter({ isStatic }) {
   return (
     <NavWrapper isStatic={isStatic}>
-      <NavLinkStyled to='/sights'>
-        <CliffsIcon title='Sights' role='img' />
+      <NavLinkStyled to="/sights">
+        <CliffsIcon title="Sights" role="img" />
         <p>All Sights</p>
       </NavLinkStyled>
-      <NavLinkStyled to='/favorites'>
-        <ShamrockIcon title='Favorites' role='img' />
+      <NavLinkStyled to="/favorites">
+        <ShamrockIcon title="Favorites" role="img" />
         <p>Favourites</p>
       </NavLinkStyled>
-      <NavLinkStyled to='/itinerary'>
-        <IrelandIcon title='Itinerary' role='img' />
+      <NavLinkStyled to="/itinerary">
+        <CalendarIcon title="Itinerary" role="img" />
         <p>Itinerary</p>
+      </NavLinkStyled>
+      <NavLinkStyled to="/map">
+        <IrelandIcon title="Map" role="img" />
+        <p>Map</p>
       </NavLinkStyled>
     </NavWrapper>
   );
@@ -30,13 +35,13 @@ NavFooter.propTypes = {
 };
 
 const NavWrapper = styled.footer`
-  width: ${(props) => (props.isStatic ? '25rem' : '92vw')};
+  width: ${(props) => (props.isStatic ? "25rem" : "92vw")};
   background-color: var(--grey-lightest-opa);
-  position: ${(props) => (props.isStatic ? 'static' : 'fixed')};
+  position: ${(props) => (props.isStatic ? "static" : "fixed")};
   bottom: 0;
-  left: ${(props) => (props.isStatic ? 'auto' : '50%')};
-  margin: ${(props) => (props.isStatic ? 'auto' : '0 auto')};
-  margin-left: ${(props) => (props.isStatic ? '' : 'calc((-92vw / 2))')};
+  left: ${(props) => (props.isStatic ? "auto" : "50%")};
+  margin: ${(props) => (props.isStatic ? "auto" : "0 auto")};
+  margin-left: ${(props) => (props.isStatic ? "" : "calc((-92vw / 2))")};
   display: inline-flex;
   box-shadow: 0 -0.4rem 0.8rem var(--grey-opa);
   justify-content: space-around;
@@ -68,7 +73,7 @@ const NavWrapper = styled.footer`
 
   @media (min-width: 500px) {
     width: 30rem;
-    margin-left: ${(props) => (props.isStatic ? 'auto' : '-15rem')};
+    margin-left: ${(props) => (props.isStatic ? "auto" : "-15rem")};
   }
 `;
 
