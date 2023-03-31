@@ -62,25 +62,28 @@ export default function Map({ sights, isFave, isOnItinerary }) {
   }
 
   return (
-    <div>
-      <MapContainer ref={mapContainer} className="map-container">
-        <Legend>
-          <span>Favourite &emsp;</span>
-          <span>On Itinerary</span>
-        </Legend>
-      </MapContainer>
-    </div>
+    <MapWrapper>
+      <MapContainer ref={mapContainer} className="map-container" />
+      <Legend>
+        <span>Favourite &emsp;</span>
+        <span>On Itinerary</span>
+      </Legend>
+    </MapWrapper>
   );
 }
+
+const MapWrapper = styled.div`
+  position: relative;
+`;
 
 const Legend = styled.div`
   position: absolute;
   top: 0;
-  left: 0;
   margin: 12px;
   padding: 6px 12px;
   background-color: var(--grey-lightest-opa);
   border-radius: 4px;
+  font-size: 0.8rem;
   font-weight: 600;
   z-index: 1;
 
